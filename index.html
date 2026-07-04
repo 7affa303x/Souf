@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souf — دليلك الرقمي لمدينة الوادي | El Oued Digital Guide</title>
+    <meta name="description" content="Souf هو الدليل الرقمي الشامل لمدينة الوادي الجزائرية. اكتشف المحلات، المطاعم، الخدمات والمزيد.">
+    <meta name="keywords" content="الوادي, الجزائر, محلات, مطاعم, دليل, تسوق, Souf, El Oued, Algeria">
+    <meta property="og:title" content="Souf — دليلك الرقمي لمدينة الوادي">
+    <meta property="og:description" content="اكتشف أفضل المحلات والخدمات في مدينة الوادي">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body data-theme="light">
+    <div class="noise-overlay"></div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" onclick="scrollToTop(); return false;">
+                <div class="nav-logo-icon">S</div>
+                <span class="nav-logo-text">Souf</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a class="nav-link" onclick="scrollToSection('categories')">التصنيفات</a></li>
+                <li><a class="nav-link" onclick="scrollToSection('featured')">المحلات المميزة</a></li>
+                <li><a class="nav-link" onclick="scrollToSection('how-it-works')">كيف يعمل</a></li>
+                <li><a class="nav-link" onclick="scrollToSection('testimonials')">آراء المستخدمين</a></li>
+                <li><a class="nav-link" onclick="openAdminPanel()">لوحة التحكم</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-ghost theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="#cta" class="btn btn-primary" onclick="scrollToSection('cta'); return false;">
+                    <i class="fas fa-store"></i>
+                    سجل محلك
+                </a>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
+
+        <div class="floating-elements">
+            <div class="float-card float-card-1">
+                <div style="display:flex;align-items:center;gap:0.75rem">
+                    <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff6b9d,#c44569);display:flex;align-items:center;justify-content:center">
+                        <i class="fas fa-tshirt" style="color:white;font-size:0.9rem"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:700;font-size:0.85rem">متجر الأناقة</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted)">أزياء رجالية</div>
+                    </div>
+                </div>
+            </div>
+            <div class="float-card float-card-2">
+                <div style="display:flex;align-items:center;gap:0.75rem">
+                    <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#43e97b,#38f9d7);display:flex;align-items:center;justify-content:center">
+                        <i class="fas fa-star" style="color:white;font-size:0.9rem"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:700;font-size:0.85rem">تقييم 4.9</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted)">مطعم الصحراء</div>
+                    </div>
+                </div>
+            </div>
+            <div class="float-card float-card-3">
+                <div style="display:flex;align-items:center;gap:0.75rem">
+                    <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#4facfe,#00f2fe);display:flex;align-items:center;justify-content:center">
+                        <i class="fas fa-mobile-alt" style="color:white;font-size:0.9rem"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:700;font-size:0.85rem">تقنية الوادي</div>
+                        <div style="font-size:0.75rem;color:var(--text-muted)">إلكترونيات</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span>البوابة الرقمية لمدينة الوادي</span>
+            </div>
+            <h1 class="hero-title">
+                اكتشف <span class="gradient-text">الوادي</span><br>
+                بطريقة جديدة تماماً
+            </h1>
+            <p class="hero-subtitle">
+                Souf هو دليلك الرقمي الشامل لاكتشاف أفضل المحلات، المطاعم، والخدمات في مدينة الوادي. 
+                ابحث، قارن، وتواصل مباشرة عبر واتساب.
+            </p>
+            <div class="hero-search">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="heroSearch" placeholder="ابحث عن محل، مطعم، أو خدمة..." oninput="handleSearch(this.value)" onfocus="showSearchResults()">
+                    <button class="btn btn-primary search-btn" onclick="performSearch()">بحث</button>
+                </div>
+                <div class="search-results" id="searchResults"></div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="statStores">0</div>
+                    <div class="stat-label">محل مسجل</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statCategories">7</div>
+                    <div class="stat-label">تصنيف</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statUsers">0</div>
+                    <div class="stat-label">زائر شهرياً</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">متوسط التقييم</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parallax-dunes">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,208C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <i class="fas fa-th-large"></i>
+                التصنيفات
+            </div>
+            <h2 class="section-title">استكشف حسب التصنيف</h2>
+            <p class="section-desc">تصفح المحلات والخدمات حسب اهتماماتك واكتشف ما يناسبك في مدينة الوادي</p>
+        </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+    </section>
+
+    <!-- Featured Stores Section -->
+    <section class="section featured-section" id="featured">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <i class="fas fa-crown"></i>
+                المحلات المميزة
+            </div>
+            <h2 class="section-title">أفضل المحلات في الوادي</h2>
+            <p class="section-desc">محلات مختارة بعناية بناءً على التقييمات والجودة</p>
+        </div>
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-category="all" onclick="filterStores('all')">الكل</button>
+            <button class="filter-tab" data-category="fashion" onclick="filterStores('fashion')">أزياء</button>
+            <button class="filter-tab" data-category="electronics" onclick="filterStores('electronics')">إلكترونيات</button>
+            <button class="filter-tab" data-category="supermarket" onclick="filterStores('supermarket')">سوبرماركت</button>
+            <button class="filter-tab" data-category="perfumes" onclick="filterStores('perfumes')">عطور</button>
+            <button class="filter-tab" data-category="furniture" onclick="filterStores('furniture')">أثاث</button>
+            <button class="filter-tab" data-category="restaurants" onclick="filterStores('restaurants')">مطاعم</button>
+            <button class="filter-tab" data-category="services" onclick="filterStores('services')">خدمات</button>
+        </div>
+        <div class="stores-grid" id="storesGrid"></div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section" id="how-it-works">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <i class="fas fa-magic"></i>
+                كيف يعمل
+            </div>
+            <h2 class="section-title">ثلاث خطوات بسيطة</h2>
+            <p class="section-desc">اكتشف المحلات والخدمات بكل سهولة ويسر</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-card reveal stagger-1">
+                <div class="step-number">1</div>
+                <h3 class="step-title">ابحث</h3>
+                <p class="step-desc">استخدم محرك البحث الذكي للعثور على ما تبحث عنه من محلات، مطاعم، أو خدمات في مدينة الوادي</p>
+            </div>
+            <div class="step-card reveal stagger-2">
+                <div class="step-number">2</div>
+                <h3 class="step-title">اكتشف</h3>
+                <p class="step-desc">تصفح التقييمات، الصور، وساعات العمل. قارن بين الخيارات المتاحة واختر الأفضل لك</p>
+            </div>
+            <div class="step-card reveal stagger-3">
+                <div class="step-number">3</div>
+                <h3 class="step-title">تواصل</h3>
+                <p class="step-desc">تواصل مباشرة مع المحل عبر واتساب، أو توجه إليه باستخدام خرائط Google المدمجة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="section-header reveal">
+            <div class="section-label">
+                <i class="fas fa-comments"></i>
+                آراء المستخدمين
+            </div>
+            <h2 class="section-title">ماذا يقولون عنا</h2>
+            <p class="section-desc">تجارب حقيقية من مستخدمي Souf في مدينة الوادي</p>
+        </div>
+        <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" id="cta">
+        <div class="cta-bg"></div>
+        <div class="cta-pattern"></div>
+        <div class="cta-content">
+            <h2 class="cta-title">سجل محلك على Souf</h2>
+            <p class="cta-desc">
+                انضم إلى مئات المحلات المسجلة على Souf ووصل إلى آلاف العملاء في مدينة الوادي. 
+                منصتك الرقمية للنمو والتوسع.
+            </p>
+            <div class="cta-buttons">
+                <button class="btn btn-white" onclick="showToast('سيتم فتح نموذج التسجيل قريباً', 'info')">
+                    <i class="fas fa-store"></i>
+                    سجل محلك الآن
+                </button>
+                <button class="btn btn-outline-white" onclick="showToast('سيتم التواصل معك قريباً', 'info')">
+                    <i class="fas fa-phone"></i>
+                    تحدث معنا
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">S</div>
+                    <span class="footer-logo-text">Souf</span>
+                </div>
+                <p class="footer-desc">
+                    Souf هو الدليل الرقمي الشامل لمدينة الوادي. نسعى لربط السكان والزوار بأفضل المحلات والخدمات في المدينة.
+                </p>
+                <div class="footer-social">
+                    <a href="#" onclick="showToast('سيتم فتح الصفحة قريباً', 'info'); return false;"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" onclick="showToast('سيتم فتح الصفحة قريباً', 'info'); return false;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" onclick="showToast('سيتم فتح الصفحة قريباً', 'info'); return false;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" onclick="showToast('سيتم فتح الصفحة قريباً', 'info'); return false;"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>المنصة</h4>
+                <ul class="footer-links">
+                    <li><a onclick="scrollToSection('categories')">التصنيفات</a></li>
+                    <li><a onclick="scrollToSection('featured')">المحلات المميزة</a></li>
+                    <li><a onclick="scrollToSection('how-it-works')">كيف يعمل</a></li>
+                    <li><a onclick="showToast('قريباً', 'info')">التسعير</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>الشركة</h4>
+                <ul class="footer-links">
+                    <li><a onclick="showToast('قريباً', 'info')">من نحن</a></li>
+                    <li><a onclick="showToast('قريباً', 'info')">المدونة</a></li>
+                    <li><a onclick="showToast('قريباً', 'info')">الوظائف</a></li>
+                    <li><a onclick="showToast('قريباً', 'info')">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>الدعم</h4>
+                <ul class="footer-links">
+                    <li><a onclick="showToast('قريباً', 'info')">مركز المساعدة</a></li>
+                    <li><a onclick="showToast('قريباً', 'info')">الشروط والأحكام</a></li>
+                    <li><a onclick="showToast('قريباً', 'info')">سياسة الخصوصية</a></li>
+                    <li><a onclick="openAdminPanel()">لوحة التحكم</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Souf. جميع الحقوق محفوظة. صنع بـ ❤️ في الوادي، الجزائر</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Nav -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-items">
+            <button class="mobile-nav-item active" onclick="scrollToTop()">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </button>
+            <button class="mobile-nav-item" onclick="scrollToSection('categories')">
+                <i class="fas fa-th-large"></i>
+                <span>التصنيفات</span>
+            </button>
+            <button class="mobile-nav-item" onclick="scrollToSection('featured')">
+                <i class="fas fa-store"></i>
+                <span>المحلات</span>
+            </button>
+            <button class="mobile-nav-item" onclick="scrollToSection('testimonials')">
+                <i class="fas fa-star"></i>
+                <span>التقييمات</span>
+            </button>
+            <button class="mobile-nav-item" onclick="scrollToSection('cta')">
+                <i class="fas fa-plus-circle"></i>
+                <span>سجل</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Store Modal -->
+    <div class="modal-overlay" id="storeModal" onclick="closeModal(event)">
+        <div class="modal" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-header-overlay"></div>
+                <button class="modal-close" onclick="closeStoreModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <button class="admin-close" onclick="closeAdminPanel()">
+            <i class="fas fa-times"></i>
+        </button>
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <div class="admin-logo-icon">S</div>
+                <span class="admin-logo-text">Souf Admin</span>
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item">
+                    <a class="admin-nav-link active" onclick="showAdminTab('dashboard')">
+                        <i class="fas fa-chart-line"></i>
+                        لوحة التحكم
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a class="admin-nav-link" onclick="showAdminTab('stores')">
+                        <i class="fas fa-store"></i>
+                        المحلات
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a class="admin-nav-link" onclick="showAdminTab('categories')">
+                        <i class="fas fa-th-large"></i>
+                        التصنيفات
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a class="admin-nav-link" onclick="showAdminTab('reviews')">
+                        <i class="fas fa-star"></i>
+                        التقييمات
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a class="admin-nav-link" onclick="showAdminTab('users')">
+                        <i class="fas fa-users"></i>
+                        المستخدمين
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a class="admin-nav-link" onclick="showAdminTab('settings')">
+                        <i class="fas fa-cog"></i>
+                        الإعدادات
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <main class="admin-main" id="adminMain"></main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
